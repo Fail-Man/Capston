@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>ちゃりこ's live room</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.comment{
+margin-right: 110px;
+padding-right: 110px;
+text-align: right;
+
+}
+
+/* Style the side navigation */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+}
+
+.pp{
+  position: absolute;
+  top: 5%;
+  width: 80%;
+  text-align: center;
+  font-size: 18px;
+  
+
+}
+/* Side navigation links */
+.sidenav a {
+  color: white;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color on hover */
+.sidenav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the content */
+/*.content {
+  margin-left: 200px;
+  padding-left: 20px;
+}*/
+</style>
+</head>
+<body>
+
+<div class="sidenav">
+  <a href="HomePage.html">HomePage</a>
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+</div>
+
+
+<div class="pp">
+
+  <video id = "video" controls autoplay muted width="400" height="400"></video>
+  <video id = "video1" controls autoplay muted width="400" height="400"></video>
+  
+
+</div>
+<p style=" width:53%;  position: absolute;
+top: 60%; text-align: center;
+">Mr.S</p>
+
+<p style=" width:53%;  position: absolute;
+top: 60%; text-align: center;
+margin-left: 280px;
+padding-left: 280px;
+">Mr.X</p>
+
+<div class="comment">
+<h1>聊天室</h1>
+</div>
+
+<div
+style=" left:80%;  position: absolute;
+top: 60%; text-align: center;">
+<input 
+id = "content1" value=""><button id="btn6" >傳送</button></input>
+</div>
+
+<p 
+style=" left:80%;  position: absolute;
+top: 8%; text-align: center;"
+id = "text1" value=""></p>
+
+<script src="blg.js"></script>
+<script>
+  var video1 = document.getElementById('video1');
+  var videoSrc1 = '/hls/test1.m3u8'; 
+  var video = document.getElementById('video');
+  var videoSrc = '/hls/test.m3u8'; // 這邊表示要播放的對象是 Stream Key為`test`的
+  if (Hls.isSupported()) { // 檢查是否支援HLS
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED, function() {
+      video.muted = true;
+      video.play();
+    });
+  } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+
+  if (Hls.isSupported()) { // 檢查是否支援HLS
+    var hls1 = new Hls();
+    hls1.loadSource(videoSrc1);
+    hls1.attachMedia(video1);
+    hls1.on(Hls.Events.MANIFEST_PARSED, function() {
+      video1.muted = true;
+      video1.play();
+    });
+  } else if (video1.canPlayType('application/vnd.apple.mpegurl')) {
+    video1.src = videoSrc1;
+  }
+
+  video.addEventListener("play",function(){
+    video.curretTime = 10;
+  });
+  video1.addEventListener("play",function(){
+    video1.curretTime = 10;
+  });
+</script>
+</body>
+</html>
+
+

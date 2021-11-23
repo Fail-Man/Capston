@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+background-color: #787878;
+
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, fantasy;
+}
+
+/* Style the header */
+.header {
+  border: 2px solid Tomato;
+  color:rgb(255, 165, 0);
+  font-family: "Lucida Console", "Courier New", fantasy;
+  background-image: url('dance.gif');
+  padding: 80px;
+  text-align: center;
+  font-size: 35px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+image-size: 100% 100%;
+image-attachment: fixed;
+  border: 2px solid Tomato;
+  color:rgb(255, 165, 0);
+  font-family: "Lucida Console", "Courier New", fantasy;
+  float: left;
+  width: 33.333%;
+  padding: 10px;
+  height: 500px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+.footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h2 style="background-color:#787878;">Chiwuawua live.com</h2>
+</div>
+
+<div class="row">
+
+  <div class="column" ><img src="dog1.jpg"usemap="#workmap1" width="400" height="400">
+dog1</div>
+  <div class="column" ><img src="dog5.jpg"usemap="#workmap2" width="400" height="400">
+dog2</div>
+  <div class="column" ><img src="dog6.jpg"usemap="#workmap3" width="400" height="400">
+dog3</div>
+</div>
+
+
+<map name="workmap1">
+  <area shape="rect" coords="0,0,400,400" alt="Computer" href="page1.html">
+</map>
+<map name="workmap2">
+  <area shape="rect" coords="0,0,400,400" alt="Phone" href="page2.html">
+</map>
+
+<map name="workmap3">
+  <area shape="rect" coords="0,0,400,400" alt="Cup of coffee" href="page3.html">
+</map>
+
+
+
+
+<div class="footer">
+  <p>s</p>
+</div>
+
+</body>
+</html>
+
+
